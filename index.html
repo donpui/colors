@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'self'; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'sha256-+qSypl1vJuhex37qmTf1ksquanVLFSy9eZ4V4ug/yAU='; connect-src 'self'; upgrade-insecure-requests"
+    />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <title>Color Pasteboard</title>
+    <meta
+      name="description"
+      content="Paste messy text and instantly extract hex and RGB color codes into clean, clickable swatches."
+    />
+    <meta
+      name="keywords"
+      content="color extractor, rgb to hex, hex colors, palette, swatches, color codes"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#f3efe7" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.svg" sizes="any" />
+
+    <meta property="og:title" content="Color Pasteboard" />
+    <meta
+      property="og:description"
+      content="Paste messy text and instantly extract hex and RGB color codes into clean, clickable swatches."
+    />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Color Pasteboard" />
+    <meta
+      name="twitter:description"
+      content="Paste messy text and instantly extract hex and RGB color codes into clean, clickable swatches."
+    />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Color Pasteboard","description":"Paste messy text and instantly extract hex and RGB color codes into clean, clickable swatches.","applicationCategory":"DesignApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript enabled"}</script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <p class="eyebrow">Paste any palette text</p>
+          <button id="theme-toggle" class="theme-toggle" type="button">
+            <span class="toggle-icon" aria-hidden="true">
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M20.8 15.2C19.4 16 17.8 16.4 16.1 16.4C11.2 16.4 7.2 12.4 7.2 7.5C7.2 5.8 7.6 4.2 8.4 2.8C4.8 4 2.2 7.4 2.2 11.4C2.2 16.4 6.2 20.4 11.2 20.4C15.2 20.4 18.6 17.8 19.8 14.2Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" />
+                <path
+                  d="M12 2.5V5.2M12 18.8V21.5M4.5 4.5L6.4 6.4M17.6 17.6L19.5 19.5M2.5 12H5.2M18.8 12H21.5M4.5 19.5L6.4 17.6M17.6 6.4L19.5 4.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <span class="toggle-label">Use dark mode</span>
+          </button>
+        </div>
+        <h1>Color Pasteboard</h1>
+        <p class="lede">
+          Drop messy notes, audits, or design tokens below. It will extract hex and
+          RGB colors and show clean swatches.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Input</h2>
+            <p>Supports rgb(), rgba(), and hex codes (#rgb, #rrggbb, #rrggbbaa).</p>
+          </div>
+          <textarea
+            id="input"
+            placeholder="Paste text here. Example: RGB(194, 193, 193) or #c2c1c1"
+          ></textarea>
+          <div class="panel-footer">
+            <span id="count">0 colors</span>
+            <span class="hint">Duplicates are merged by color.</span>
+          </div>
+        </section>
+
+        <section class="panel output">
+          <div class="panel-header">
+            <h2>Swatches</h2>
+            <p>Click any swatch to copy its hex value.</p>
+          </div>
+          <div id="empty" class="empty">No colors yet. Paste text to begin.</div>
+          <div id="swatches" class="swatches"></div>
+        </section>
+      </main>
+    </div>
+    <footer class="site-footer">
+      <p>© 2026 Donatas Puidokas · Generated with Codex.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
